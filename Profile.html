@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            background-color: #6b6b6b33;
+            position: relative;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            margin-top: 5rem;
+            /* min-height: 100vh; */
+            /* width: 100vw; */
+        }
+        .profile{
+            /* box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.2); */
+            position: absolute;
+            /* border: .1rem solid red; */
+            /* overflow: hidden; */
+            /* padding: 10rem; */
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #d0c6f03c;
+            width: 90vw;
+            height: 100vh;
+        }
+       
+        /* ---------------------------------------------- navbar section ------------------------------------------------------------ */
+        .profile-navbar{
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+            /* height: 5rem; */
+            /* width: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 13rem;
+            padding: 1rem 0;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+        .profile-navbar-content-left{
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 3rem; */
+        }
+        #nav-icon{
+            background-color: #fdf9f9ba;
+            box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.2);
+            padding: .4rem;
+            /* border: 0.1rem solid black; */
+            border-radius: .2rem;
+            color: #406cd2c3; 
+            font-size: 2rem;
+            /* opacity: .7; */
+        }   
+        .nav-heading{
+            font-size: 2rem;
+            font-weight: 600;
+
+        }
+        
+        ul{
+            display: flex;
+            flex-direction: row;
+            /* gap: 2rem; */
+            justify-content: center;
+            align-items: center;
+            /* display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            place-content: center; */
+        }
+        .list{
+            list-style: none;
+            /* width: 10rem; */
+            font-weight: 700;
+            font-size: 1.1rem;  
+            padding: 0.6rem 1.2rem;
+            opacity: .6;
+        }
+        .list:first-child{
+            background-color: rgba(128, 128, 128, 0.139);
+            box-shadow: 1 .1rem .2rem rgba(0, 0, 0, 0.2);
+            border-radius: 0.4rem;
+        }
+        .profile-navbar-icon{
+            font-size: 1.7rem;
+            opacity: .5;
+            margin-right: 3rem;
+        }
+        /* ---------------------------------------------- profile-details section ----------------------------------------------------- */
+        .profile-details{
+            background-color: #fff;
+            position: absolute;
+            top: 8rem;
+            left: 2.5rem;
+            /* margin-top: 2rem; */
+            width: 67%;
+            /* box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.2); */
+            border-radius: 1rem !important;
+            /* margin: 3rem; */     
+        }
+        .profile-details-background{
+            background-color: #f7b8426e;
+            border-top-right-radius: 1rem;  
+            border-top-left-radius: 1rem;
+            height: 12rem;
+            position: relative;
+        }
+        .profile-img{
+            border-radius: 50%;
+            width: 10rem;
+            position: absolute;
+            left: 2rem;
+            top: 7rem;
+            outline: .3rem solid white;
+        }
+        .profile-details-user{
+            margin: 7rem 0 0 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            margin-bottom: 3rem;
+        }
+        .profile-details-user-heading{
+            font-size: 2rem;
+            font-weight: 600;
+        }
+       .flg-img{
+        /* border-radius:50% ; */
+        width: 2.3rem;
+       }
+       p{
+        font-size: 1.1rem;
+        font-weight: 400;
+        opacity: .7;
+        /* margin-left: .5rem; */
+       }
+       .profile-details-address{
+        display: flex;
+        /* flex-direction: row; */
+        gap: 1rem;
+        /* justify-content: center; */
+        align-items: center;
+       }
+       #bolt{
+        background-color: blue;
+            box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.2);
+            padding: .4rem;
+            /* border: 0.1rem solid black; */
+            border-radius: .2rem;
+            color: white    ; 
+            font-size: 1rem;
+            opacity: .7;
+       }
+       .common-heading{
+        font-weight: 600;
+            font-size: 1.1rem; 
+        opacity: .8;
+       }
+       .dot{
+        border-radius: 100%;
+        border: .2rem solid #00000075;
+       }
+     
+       .squre{
+        list-style-type: square;
+        display: flex;
+        flex-direction: row;
+        margin:0 2rem;
+        /* gap: 5rem; */
+       }
+       .li{
+        display: flex;
+        justify-content: center;
+        margin-left: 5rem;
+        gap: 2rem;
+       }
+       .three-dot{
+        position: absolute;
+        right: 3rem;
+        top: 14rem;
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        cursor: pointer;
+       }
+       .btn{
+        font-size: 1.1rem;
+        font-weight: 600;
+        background-color: #fdf9f9ba;
+            box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.2);
+            padding: .6rem 1.2rem;
+            /* border: 0.1rem solid black; */
+            border-radius: .5rem;
+            border: none;
+       }
+       .profile-details-btn{
+        font-size: 1.1rem;
+        font-weight: 600;
+       background-color: rgba(0, 0, 255, 0.724);
+       color: #fff;
+       box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.2);
+            padding: .6rem 1.2rem;
+            border-radius: .5rem;
+            border: none;
+       }
+
+       /* ---------------------------------------------- profile-skills section ----------------------------------------------------- */
+
+       .profile-skills{
+            background-color: #fff;
+            position: absolute;
+            top: 42.5rem;
+            left: 2.5rem;
+            /* margin-top: 2rem; */
+            width: 67%;
+            /* box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.2); */
+            border-radius: 1rem !important;
+            /* margin: 3rem; */   
+            padding: 2.5rem;  
+        }
+        .profile-skills-heading{
+            font-size: 1.5rem;
+            font-weight: 600    ;
+        }
+        .profile-skills-button{
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-skills-button-row{
+            display: flex;
+            gap: 1rem;
+        }
+
+
+        /* ---------------------------------------------- profile-People section ----------------------------------------------------- */
+        .profile-people{
+            background-color: #fff;
+            position: absolute;
+            top: 8rem;
+            right: 2.5rem;
+            /* margin-top: 2rem; */
+            width: 27%;
+            height: 35rem;
+            /* box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.2); */
+            border-radius: 1rem !important;
+            /* margin: 3rem; */   
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+        }
+        .profile-people-heading{
+            font-size: 1.5rem;
+            font-weight: 600;
+            
+        }
+        .profile-people-img1{
+            border-radius: 50%;
+            width: 3.5rem;
+            /* z-index: 5; */
+            box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.2);      
+            position: relative;
+            /* left: 2rem;
+            top: 6rem; */
+            outline: .3rem solid white;
+        }
+        .profile-people-img2{
+            border-radius: 50%;
+            width: 3.5rem;
+            box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.2);      
+            position: absolute;
+            z-index: 3;
+            left: 4.3rem;
+            top: 5.3rem;
+            outline: .3rem solid white;
+        }
+        .profile-people-details{
+        margin-bottom: .2rem;
+       }
+       .img3{
+            position: absolute;
+            left: 4.3rem;
+            top: 13.9rem;
+        }
+        .img4{
+            position: absolute;
+            left: 4.3rem;
+            top: 22.3rem;
+        }
+       /* .profile-people-img2:nth-child(2){
+            top:30rem;
+            left: 9rem;
+            z-index: 5;
+        } */
+        /* .profile-people-img1:nth-child(2){
+            top:15rem;
+        } */
+        
+       
+       
+       .profile-people-details:nth-child(2){
+        margin-top: none !important;
+       }
+       .see{
+        position: absolute;
+        background-color: #fff;
+        bottom: 0;
+        height: 3rem;
+        z-index: 5;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* margin: 0 auto; */
+        align-self: center;
+       }
+    </style>    
+</head>
+<body>
+    <section class="container">
+        <div class="profile">
+            <nav class="profile-navbar">
+             
+                    <div class="profile-navbar-content-left">
+                        <i id="nav-icon" class="fa-solid fa-layer-group "></i>
+                    <h6 class="nav-heading">Stratis</h6>
+                    </div>
+
+                        <ul class="profile-navbar-content-mid">
+                            <li class="list">Overview</li>
+                            <li class="list">Accounts</li>
+                            <li class="list">Activities</li>
+                            <li class="list">Spending</li>
+                            <li class="list">Save & Invest</li>
+                            <li class="list">My home</li>
+                            <li class="list">Retirement</li>
+                        </ul>
+                
+                    <i class="fa-solid fa-magnifying-glass profile-navbar-icon"></i>
+              
+            </nav>
+
+
+            /* ---------------------------------------------- profile-details section ----------------------------------------------------- */
+
+
+            <article class="profile-details">
+                <div class="profile-details-background"></div>
+                <img class="profile-img" src="https://pbs.twimg.com/profile_images/1485050791488483328/UNJ05AV8_400x400.jpg"
+                 alt="profile"
+                />
+                <div class="profile-details-user">
+                    <h6 class="profile-details-user-heading">Anand Iyer</h6>
+                    <div class="profile-details-address">
+                    <img src="https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg" alt="flag" class="flg-img" />
+                    <p>Pune, Maharashtra</p>
+                    </div>
+                    <div class="profile-details-address">
+                        <p>@anand21</p> 
+                        <span class="dot"></span>
+                        <i id="bolt" class="fa-solid fa-bolt"></i>
+                        <h6 class="common-heading" >Electronic and telecommuction</h6>
+                        <span class="dot"></span>
+                        <p style="opacity: .5;">Full-time</p>                        
+                    </div>
+                    <div class="three-dot">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="profile-details-address">
+                        <button class="btn" >Message</button>
+                        <button class="profile-details-btn">
+                            <i class="fa-solid fa-share"></i>
+                            Share profile
+                        </button>
+                    </div>
+
+                </div>
+            </article>
+
+
+            /* ---------------------------------------------- profile-skills section ----------------------------------------------------- */
+
+
+            <article class="profile-skills">
+                <h6 class="profile-skills-heading">Skills</h6>
+                <div class="profile-skills-button">
+                    <div class="profile-skills-button-row">
+                        <button class="btn">Product Design</button>
+                        <button class="btn">UX Design</button>
+                        <button class="btn">Google Analytics</button>
+                        <button class="btn">SEO Content</button>
+                        <button class="btn">Custumer Service</button>
+                    </div>
+                </div>
+                <div class="profile-skills-button">
+                    <div class="profile-skills-button-row">
+                        <button class="btn">UI Design</button>
+                        <button class="btn">Design Strategy</button>
+                        <button class="btn">Web-Development</button>
+                        <button class="btn">Integrated Design</button>
+                        <button class="btn">Front End</button>
+                    </div>
+                </div>
+            </article>
+
+
+        /* ---------------------------------------------- profile-People section ----------------------------------------------------- */
+
+
+        <aside class="profile-people">
+            <!-- people Associated 1-->
+            <h6 class="profile-people-heading">People Associated</h6>
+            <div class="profile-people-details">
+                <img class="profile-people-img1" src="https://pbs.twimg.com/profile_images/1485050791488483328/UNJ05AV8_400x400.jpg"
+            alt="profile"
+            />
+            <img class="profile-people-img2" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d2abd662597191.5a9589b09ddf5.jpg"
+            alt="profile"
+            />
+            <div class="profile-people-details">
+                <h6 class="common-heading">Ahamad Ekstroom Bothman</h6>
+            <p>Future Program Designer</p>
+            </div>
+            </div>
+
+            <!-- people Associated 2-->
+
+           <div class="profile-people-details">
+            <img class="profile-people-img1" src="https://pbs.twimg.com/profile_images/1485050791488483328/UNJ05AV8_400x400.jpg"
+            alt="profile"
+            />
+            <img class="profile-people-img2 img3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCA32rmecCcxCj4vcZpZ6WidVV56_Gf9g9OmBXwgFyPC3sCIAYcMibfuJiZ6gQbntm-c&usqp=CAU"
+            alt="profile"
+            />
+            <div >
+                <h6 class="common-heading">Sheldon Langosh </h6>
+            <p>Dynamic Directives Architecture</p>
+            </div>
+           </div>
+
+            <!-- people Associated 3-->
+
+           
+           <div class="profile-people-details">
+            <img class="profile-people-img1" src="https://pbs.twimg.com/profile_images/1485050791488483328/UNJ05AV8_400x400.jpg"
+            alt="profile"
+            />
+            <img class="profile-people-img2 img4" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="profile"
+            />
+            <div >
+                <h6 class="common-heading">Jeremy Crist</h6>
+            <p>Lead Configuration Architecture</p>
+            </div>
+           </div>
+           <h6 class="common-heading see">See more</h6>
+        </aside>
+    </div>
+    </section>      
+</body>
+</html>
